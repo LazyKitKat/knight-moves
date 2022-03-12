@@ -5,7 +5,8 @@ class Board
         current_move = tree(startpos, endpos)
         history = hist(current_move, startpos)
         puts "You made it in #{history.length - 1} " + check_history(history)
-        history.reverse.each { |move| puts move.to_s }
+        puts "Moves:"
+        history.each { |move| puts move.to_s }
     end
     
     def check_history(arr)
@@ -35,6 +36,6 @@ class Board
             arr << current_move.start
             current_move = current_move.parent
         end
-        arr
+        arr.reverse
     end
 end
